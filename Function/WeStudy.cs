@@ -38,8 +38,10 @@ public static class WeStudy
     public static void Main(string[] args)
     {
         string x = Console.ReadLine();
+        string first = Console.ReadLine();
+        string second = Console.ReadLine();
         //Console.WriteLine(IsSort(x));
         //Console.WriteLine(IsPolindrom(x));
-        Console.WriteLine(Distance("сегодня урок будет в дистанционном формате", "сегодня", "будет"));
+        Console.WriteLine(Distance(x, first, second));
     }
 }
