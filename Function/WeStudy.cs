@@ -106,8 +106,12 @@ public static class WeStudy
         int a = Convert.ToInt32(Console.ReadLine());
         while (a != 0)
         {
-            n++;
-            sum += a;
+            if (a > 0)
+            {
+                n++;
+                sum += a;
+            }
+
             a = Convert.ToInt32(Console.ReadLine());
         }
 
@@ -136,6 +140,6 @@ public static class WeStudy
         //Doubles();
         //Console.WriteLine(Thirteen());
         //Console.WriteLine(Arifmetic());
-        Console.WriteLine(Compare());
+        //Console.WriteLine(Compare());
     }
 }
