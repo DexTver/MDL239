@@ -125,21 +125,85 @@ public static class WeStudy
         if (x > y) return ">";
         else return "<";
     }
+    
+    private static bool IsNumber(string a)
+    {
+        bool ans = true, fl = false, fl2 = true;
+        if (a[0] == '-') fl2 = false;
+        foreach (char x in a)
+        {
+            if (x == 46)
+            {
+                if (!fl) fl = true;
+                else ans = false;
+            }
 
+            else if (x == '-' + 0)
+            {
+                if (!fl2) fl2 = true;
+                else ans = false;
+            }
+
+            else if ((x - 48) < 0 || (x - 48) > 9)
+            {
+                ans = false;
+            }
+        }
+
+        return ans;
+    }
+
+    private static void Equation(string a, string b, string c, out string x1, out string x2)
+    {
+        x1 = x2 = "Нет корней";
+        if (!IsNumber(a) || !IsNumber(b) || !IsNumber(c))
+        {
+            Console.WriteLine("Введено не число!");
+            x1 = x2 = "";
+        }
+        else
+        {
+            double a1 = Double.Parse(a), b1 = Double.Parse(b), c1 = Double.Parse(c);
+            if (a1 == 0f)
+            {
+                if (b1 == 0f)
+                {
+                    if (c1 == 0f)
+                    {
+                        x1 = x2 = "Любое число";
+                    }
+                    else x1 = x2 = "Нет корней";
+                }
+                else
+                {
+                    double x = -c1 / b1;
+                    x1 = x.ToString();
+                    x2 = "Нет корня";
+                }
+            }
+            else
+            {
+                double D = (int) Math.Pow(b1, 2) - (4 * a1 * c1);
+                if (D == 0)
+                {
+                    double x = (-b1 + Math.Sqrt(D)) / (2 * a1);
+                    x1 = x.ToString();
+                    x2 = "Нет корня";
+                }
+
+                if (D > 0)
+                {
+                    double x = (-b1 + Math.Sqrt(D)) / (2 * a1);
+                    x1 = x.ToString();
+                    x = (-b1 - Math.Sqrt(D)) / (2 * a1);
+                    x2 = x.ToString();
+                }
+            }
+        }
+    }
 
     public static void Main(string[] args)
     {
-        //string x = Console.ReadLine();
-        //string first = Console.ReadLine();
-        //string second = Console.ReadLine();
-        //Console.WriteLine(IsSort(x));
-        //Console.WriteLine(IsPolindrom(x));
-        //Console.WriteLine(Distance(x, first, second));
-        //Pifagor();
-        //Hello();
-        //Doubles();
-        //Console.WriteLine(Thirteen());
-        //Console.WriteLine(Arifmetic());
-        //Console.WriteLine(Compare());
+        Console.WriteLine("Hello world!)");
     }
 }
